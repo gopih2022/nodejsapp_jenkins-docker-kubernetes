@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        dockerimagename = "ramann123/myimage"
+        dockerimagename = "gopih2022/testrepo"
         registryCredential = 'dockerhublogin'  // Jenkins credential ID for DockerHub
         namespace = 'raman' // OpenShift namespace
         yamlFile = 'openshiftdeploymentfile.yaml' // Path to your YAML file
@@ -70,7 +70,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    oc login --token=sha256~2_xG7pOo96IvPrh_qaFC2bTzQMn5MvZKaAhRAqMrDTA --server=https://api.natwest.priartw.com:6443 --insecure-skip-tls-verify
+                    oc login --token=sha256~SmhmhqouS4Lqf8MiHF5f9_F2Y8dv9YrIBP4XK3IsNUQ --server=https://api.natwest.priartw.com:6443 --insecure-skip-tls-verify
                     oc project ${namespace}
                     oc apply -f ${yamlFile}  # Apply the YAML file directly
                     oc rollout status deployment/nodeapp-deployment
